@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75067f14-3a2d-4c33-833e-0ca19b698f57" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2017-08-14-Adversarial-attacking.MARKUP" afterPath="$PROJECT_DIR$/_posts/2017-08-14-Adversarial-attacking.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2017-08-14-Adversarial-attacking.md" afterPath="$PROJECT_DIR$/_posts/2017-08-14-Adversarial-attacking.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/_posts/2017-08-14-Adversarial-attacking.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+              <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -44,6 +44,7 @@
       <list>
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/_posts/2017-08-14-Adversarial-attacking.MARKUP" />
+        <option value="$PROJECT_DIR$/_posts/2017-08-14-Adversarial-attacking.md" />
       </list>
     </option>
   </component>
@@ -237,7 +238,7 @@
     <entry file="file://$PROJECT_DIR$/_posts/2017-08-14-Adversarial-attacking.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+          <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding />
         </state>
       </provider>
