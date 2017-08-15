@@ -1,8 +1,13 @@
 ---
 layout: post
-title: Adversarial attacking 에 대한 정리
+title: 논문 Explaining And Harnessing Adversarial Examples 리뷰
+author: Jiwon Jun
+date: 2017-08-15 15:30
+
 ---
-## 안뇽! 지금은 테스트 중이야 친구들!
+## Deep Neural Network는 완벽해질 수 있을까?
+
+Szegedy et al. 이 작성한 Intriguing properties of neural networks(2014)에서 재밌는 이야기를 하는데, 작은 Noise, 정확히는 Adversarial Examples를 본래의 이미지에 추가하게 되면 잘 작동하던 분류기도 자신있게(!) 틀리는 문제가 생김을 발견하였다.
 
 테스트 중이라 아아주 이상할꺼야.
 ![친절한 스크린샷]({{ site.url }}/assets/demo_0_trained.jpg)
