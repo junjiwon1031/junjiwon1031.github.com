@@ -1,2 +1,25 @@
+title: 개인적 Deep Learning 정리 페이지
+email: battery94@gist.ac.kr
+timezone: Asia/Seoul
+
+repository: junjiwon1031/junjiwon1031.github.io
 theme: jekyll-theme-slate
+
+gems:
+  - jekyll-paginate
+
 paginate: 5
+paginate: '/page/:num/'
+
+collections:
+  authors:
+    output: tru
+    permalink: /author/:path/
+
+exclude: [README.md, Gemfile, Gemfile.lock]
+
+keep_files: [assets, files]
+
+asset_urs: /assets
+github:
+  username: junjiwon1031
