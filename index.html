@@ -1,0 +1,9 @@
+---
+layout: home
+---
+<ul id="post-list">
+	{% for post in paginator.posts %}
+		{% include post.html %}
+	{% endfor %}
+</ul>
+{% include pagination.html %}

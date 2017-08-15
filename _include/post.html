@@ -1,0 +1,7 @@
+<li class="post-item post {{ post.post_class }}">
+	<a href="{{ post.url }}">
+		<h2 class="post-title">{{ post.title }}</h2>
+		<p class="post-excerpt">{{ post.excerpt | truncatewords: 75 }}</p>
+	</a>
+	
+</li>
