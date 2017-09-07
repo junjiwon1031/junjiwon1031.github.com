@@ -11,7 +11,7 @@ SSD가 등장하기 전까지 많이 사용되던 대표적인 detector는 Faste
    2. 뽑은 부분의 특징을 **resampling** 하고
    3. 그 뒤에 높은 성능의 classifier를 이용하는 것이다.
    
-   ![Faster R-CNN](https://raw.githubusercontent.com/sunshineatnoon/Paper-Collection/master/images/faster-rcnn.png "Faster R-CNN")
+   >![Faster R-CNN](https://raw.githubusercontent.com/sunshineatnoon/Paper-Collection/master/images/faster-rcnn.png "Faster R-CNN")
 
 
 하지만 Faster R-CNN은 전작인 R-CNN을 열심히 개선했음에도 불구하고 너무 느려서 (7 FPS with mAP 73.2% ) 실시간 영상분석에 사용할 수는 없었다. 
