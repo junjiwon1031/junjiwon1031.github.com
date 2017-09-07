@@ -66,7 +66,8 @@ Single-shot detector는 말 그대로 **사진의 변형 없이 그 한 장으�
 SSD는 이러한 문제를 Multi-scale feature maps 을 이용해서 해결하였다.
 
 >![SSD-Framework](http://www.cs.unc.edu/~wliu/papers/ssd.png)
-> 귀여운 멍멍이와 야옹이는 크기가 두 배정도 차이가 나기 때문에 크기가 다른 feature map에서 각각을 찾아내게 된다. 
+> 귀여운 *멍멍이*와 *야옹이*는 크기가 **두 배정도** 다르기에 
+> 크기가 다른 feature map에서 찾아내게 된다. 
 
 
 보통의 경우 입력의 크기를 맞추어 training을 하게 된다. ( 여기서는 alexnet에서 사용되었던 \\(224 \times 224 \\)를 input으로 받는다고 가정해보자) 
