@@ -11,8 +11,8 @@ SSD가 등장하기 전까지 많이 사용되던 대표적인 detector는 Faste
    2. 뽑은 부분의 특징을 **resampling** 하고
    3. 그 뒤에 높은 성능의 classifier를 이용하는 것이다.
    
+   (비슷한 시기에 나온 detector들은 대부분 이 과정을 거치게 된다.)
    >![Faster R-CNN](https://raw.githubusercontent.com/sunshineatnoon/Paper-Collection/master/images/faster-rcnn.png "Faster R-CNN")
-
 
 하지만 Faster R-CNN은 전작인 R-CNN을 열심히 개선했음에도 불구하고 너무 느려서 (7 FPS with mAP 73.2% ) 실시간 영상분석에 사용할 수는 없었다. 
 
@@ -40,7 +40,7 @@ SSD의 Framework를 천천히 살펴보면서 SSD가 가지고 있는 특징을 
 
 #### 1) *single-shot detector*
 
-Single-shot detector는 말 그대로 **사진 한장으로 훈련, 검출**을 하는 detector를 의미한다.
+Single-shot detector는 말 그대로 **사진의 변형 없이 그 한 장으로 훈련, 검출**을 하는 detector를 의미한다.
 
 그 의미를 알기 위해 다른 deep learning detector를 먼저 살펴보자.
 
@@ -51,19 +51,23 @@ Single-shot detector는 말 그대로 **사진 한장으로 훈련, 검출**을 
 >224X224 크기의 이미지를 입력으로 받아, 그 결과를 1000 labels에 대한 확률로 반환해준다.
 >(출처: http://www.datalearner.com)
 
-즉 원하는 사진에서 객체가 있는지 없는지 확인하기 위해서는 그림을 224X224로 자르거나 변형켜서 알아내야 한다. 이러한 과정을 위해 Image Pyramid & Sliding Window 라던가, Region Proposal Network등으로 입력 이미지를 변형시켜 네트워크 집어넣게 된다.
+즉 원하는 사진에서 객체가 있는지 없는지 확인하기 위해서는 그림을 224X224로 자르거나 변형켜서 알아내야 한다. 이러한 과정을 위해 *Image Pyramid & Sliding Window* 라던가, *Region Proposal Network(Faster R-CNN)*등으로 입력 이미지를 변형시켜 네트워크 집어넣게 된다. 
 
-문제는 위의 처리 과정을 통해 얻은 여러가지 sample 들을 하나씩 network에 넣어서 훈련, 검출 해야 한다는 것이다. deep-learning
-        - 이미지를 
- 다양한 크기의 객체를 검출하기 위해서 크기를 키우고 줄여서 각각의 사진에서 네트워크를 이용하여 검출한다.  
+문제는 위의 처리 과정을 통해 얻은 여러가지 sample 들을 하나씩 network에 넣어서 하나씩 검출 해야 한다는 것이다. 여러 장의 정보를 처리해야하기 때문에 그만큼 네트워크를 많이 돌게 되고, 횟수 차이에 의한 속도의 저하가 일어나게 된다.
 
-하지만 여러 장의 정보를 처리해야하기 때문에 그만큼 네트워크를 더 돌아야하고, 속도의 저하가 일어나게 된다.
+위와 같은 이유로 Single-shot detector가 상대적으로 검출 속도가 빠른 것이다.
 
-YOLO, SSD와 같은 Detector들이 상대적으로 빠른 속도를 가지고 있는 것은 이러한 이유이다.
+#### 2) *Multi-scale feature maps for detection*
 
-2) *Multi-scale feature maps for detection*
+하지만 single-shot learning을 위해서는 큰 문제 하나를 해결해야 한다.
 
-근데 Single-shot이 좋았으면 다른 논문에서도 single-shot을 사용했을 것이다.
+**단! 한장의! 사진**만을 가지고 여러가지 크기의 물체를 검출해야 한다.
+
+SSD는 이러한 문제를 Multi-scale feature maps 을 이용해서 해결하였다.
+
+>![SSD-Framework](http://www.cs.unc.edu/~wliu/papers/ssd.png)
+> 귀여운 멍멍이와 야옹이는 크기가 두 배정도 차이가 나기 때문에 크기가 다른 feature map에서 각각을 찾아내게 된다. 
+
 
 보통의 경우 입력의 크기를 맞추어 training을 하게 된다. ( 여기서는 alexnet에서 사용되었던 \\(224 \times 224 \\)를 input으로 받는다고 가정해보자) 
 
