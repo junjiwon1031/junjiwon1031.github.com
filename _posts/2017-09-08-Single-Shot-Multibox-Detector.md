@@ -75,7 +75,7 @@ SSD는 이러한 문제를 기본 구조 뒤에 보조 구조를 붙여 얻은 *
 
 #### 3) *Convolutional predictors for detection* & *Default boxes and aspect ratios*
 
-> ![SSD-architecture])(/assets/ssd_architecture.png)
+> ![SSD-architecture])(/assets/ssd_architecture.png )
 
 이 것이 SSD 의 architecture이다. 기본 구조나 보조 구조에서 얻은 feature map들은 각각 다른 convolutional filter에 의해 결과값을 얻게 된다. 
 
@@ -91,3 +91,4 @@ SSD는 이러한 문제를 기본 구조 뒤에 보조 구조를 붙여 얻은 *
 논문에서는 5개의 feature map에 대해서, 전부 다른 filter들을 사용함으로 크기에 상관없이 검출할 수 있는 환경을 만들었다. 이러한 방식 덕분에 위치 추정 및 resampling 없이도 높은 정확도를 가진 detector가 완성된 것이다.
 
 ## SSD 훈련하기 
+
