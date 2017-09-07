@@ -46,7 +46,7 @@ Single-shot detector는 말 그대로 **사진 한장으로 훈련, 검출**을 
 
 보편적으로 사용되고 있는 Deep-learning Detector 들은 처음 훈련시킨 크기만을 입력으로 받을 수 있다. 대표적으로 VGG-16, Alexnet에서 주로 224X224 크기의 이미지를 입력으로 받는다.
 
->![VGG-16]({{ site.url }}/assets/vgg16.png ) 
+>![VGG-16](/assets/vgg16.png ) 
 >
 >224X224 크기의 이미지를 입력으로 받아, 그 결과를 1000 labels에 대한 확률로 반환해준다.
 >(출처: http://www.datalearner.com)
