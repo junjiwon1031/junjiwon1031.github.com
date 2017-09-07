@@ -113,12 +113,19 @@ SSD가 예측한 박스와 실제 박스가 일치하는 지를 확인하는 것
 
 #### 2) *Training objective*
 >![SSD Loss Function](/assets/ssd_loss_function.png)
+>
 > N: 검출된 박스의 개수 ( N=0 일 시에 loss를 0으로 설정함)
+>
 > g: ground truth box, 실제 박스의 변수들을 의미한다.
+>
 > d: default box, default box
+>
 > c: category, 말 그대로 카테고리
+>
 > l: predicted boxes, 예상된 박스의 변수들을 의미한다.
+> 
 > cx, cy: offset of center
+>
 > w,h : width and height
 
 SSD 는 위치와 카테고리를 같이 학습한다. 따라서 loss 역시 그 두 개를 동시에 고려하여야 한다. 가장 위의 식은 전체 Loss를 의미하며, N은 검출된 박스의 개수를 의미한다.
