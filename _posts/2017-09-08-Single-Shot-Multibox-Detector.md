@@ -63,7 +63,7 @@ Single-shot detector는 말 그대로 **사진의 변형 없이 그 한 장으�
 
 **단! 한장의! 사진**만을 가지고 여러가지 크기의 물체를 검출해야 한다.
 
-SSD는 이러한 문제를 Multi-scale feature maps 을 이용해서 해결하였다.
+SSD는 이러한 문제를 기본 구조 뒤에 보조 구조를 붙여 얻은 *Multi-scale feature maps* 을 이용해서 해결하였다.
 
 >![SSD-Framework](http://www.cs.unc.edu/~wliu/papers/ssd.png)
 > *멍멍이*와 *야옹이*는 크기가 **두 배정도** 다르기에 
@@ -73,4 +73,16 @@ SSD는 이러한 문제를 Multi-scale feature maps 을 이용해서 해결하�
 
 하지만 SSD 는 그렇지 않고, feature map을 여러 개의 크기로 만들어서, 큰 map에서는 작은 물체의 검출을, 작은 map에서는 큰 물체의 검출을 하게 만들었다. 후술하겠지만, 이러한 방식은 위치 추정 및 입력 이미지의 resampling을 없애면서도 정확도 높은 결과를 도출하게 된다. 
 
-#### 3) *Convolutional predictors for detection*
+#### 3) *Convolutional predictors for detection* & *Default boxes and aspect ratios*
+
+> ![SSD-architecture])(/assets/ssd_architecture.png)
+
+이 것이 SSD 의 architecture이다. 기본 구조나 보조 구조에서 얻은 feature map들은 각각 다른 convolutional filter에 의해 결과값을 얻게 된다. 
+
+*m* x *n* 을 *p* 채널을 가지고 있는 feature map은, 각 위치 마다 *3* x *3* x *p* kernel들 을 적용할 수 있으며, 각 kernel(filter) 은 카테고리 점수나 bounding box offset에 대한 가능성을 알려주게 된다.
+
+한 가지 예를 들어보자. bounding box offset이란 각 cell(feature map 한 칸)을 기준으로 한 상대적 위치와 박스의 크기를 의미한다. 이를 위해 필요한 정보는 x, y, width, height 로 4개이다. 즉 이들을 표현하기 위해 한 cell 당 4개의 filter들로 표현할 수 있게 되는 것이다.
+
+마찬가지로 카테고리 점수는 각 label 마다 얼마만큼의 가능성이 있는 것인지 표시하는 것이기에, 한 카테고리당 하나의 filter로 표현할 수가 있다. 만약 c개의 카테고리가 있었다면, 한 cell 당 (c + 4)개의 filter로 표현 할 수 있다는 것이다.
+
+....만! 
