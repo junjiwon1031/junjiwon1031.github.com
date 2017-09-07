@@ -79,10 +79,15 @@ SSD는 이러한 문제를 기본 구조 뒤에 보조 구조를 붙여 얻은 *
 
 이 것이 SSD 의 architecture이다. 기본 구조나 보조 구조에서 얻은 feature map들은 각각 다른 convolutional filter에 의해 결과값을 얻게 된다. 
 
-*m* x *n* 을 *p* 채널을 가지고 있는 feature map은, 각 위치 마다 *3* x *3* x *p* kernel들 을 적용할 수 있으며, 각 kernel(filter) 은 카테고리 점수나 bounding box offset에 대한 가능성을 알려주게 된다.
+*m* x *n* 을 *p* 채널을 가지고 있는 feature map은, 각 위치 마다 *3* x *3* x *p* kernel들 을 적용할 수 있으며, 각 **kernel(filter) 은 카테고리 점수나 bounding box offset 점수**를 알려주게 된다.
 
 한 가지 예를 들어보자. bounding box offset이란 각 cell(feature map 한 칸)을 기준으로 한 상대적 위치와 박스의 크기를 의미한다. 이를 위해 필요한 정보는 x, y, width, height 로 4개이다. 즉 이들을 표현하기 위해 한 cell 당 4개의 filter들로 표현할 수 있게 되는 것이다.
 
 마찬가지로 카테고리 점수는 각 label 마다 얼마만큼의 가능성이 있는 것인지 표시하는 것이기에, 한 카테고리당 하나의 filter로 표현할 수가 있다. 만약 c개의 카테고리가 있었다면, 한 cell 당 (c + 4)개의 filter로 표현 할 수 있다는 것이다.
 
-....만! 
+....만! 사실 offset에서 실제 bounding box의 크기를 말하지 않는다. 실제 박스와 예측 박스가 정확히 일치하는 것이 제일 좋겠지만, 너무나도 어렵고 비효율적이다. 그래서 *aspect ratio*라는 개념을 도입하였다.
+이는 **상자가 가질만한 비율을 몇 가지만 추려서 정답은 이 안에 있어! 라고 추정하는 것**이다. 이는 위 사진에 잘 표현되어 있다. 약간의 정확도를 포기하지만 빠르고 나쁘지 않은 성능을 보여준다. 그래서 만약 aspects ratio가 k개라 했을 때 실제로 한 cell 당 (c + 4) x k 개의 filter를 적용하게 된다.
+
+논문에서는 5개의 feature map에 대해서, 전부 다른 filter들을 사용함으로 크기에 상관없이 검출할 수 있는 환경을 만들었다. 이러한 방식 덕분에 위치 추정 및 resampling 없이도 높은 정확도를 가진 detector가 완성된 것이다.
+
+## SSD 훈련하기 
