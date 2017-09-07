@@ -66,10 +66,11 @@ Single-shot detector는 말 그대로 **사진의 변형 없이 그 한 장으�
 SSD는 이러한 문제를 Multi-scale feature maps 을 이용해서 해결하였다.
 
 >![SSD-Framework](http://www.cs.unc.edu/~wliu/papers/ssd.png)
-> 귀여운 *멍멍이*와 *야옹이*는 크기가 **두 배정도** 다르기에 
-> 크기가 다른 feature map에서 찾아내게 된다. 
+> *멍멍이*와 *야옹이*는 크기가 **두 배정도** 다르기에 
+> 크기가 다른 feature map들에서 찾아내게 된다. 
 
+위 사진에서 멍멍이의 크기는 사진의 1/3 가량인데 반해, 고양이는 대략 1/6 정도로 둘의 크기 차이가 크다. 이를 한가지 feature map에서 구하려면 bounding box의 크기차이가 크기 때문에, box의 크기 추정부터 위치 추정까지 많은 과정이 필요할 것이다.
 
-보통의 경우 입력의 크기를 맞추어 training을 하게 된다. ( 여기서는 alexnet에서 사용되었던 \\(224 \times 224 \\)를 input으로 받는다고 가정해보자) 
+하지만 SSD 는 그렇지 않고, feature map을 여러 개의 크기로 만들어서, 큰 map에서는 작은 물체의 검출을, 작은 map에서는 큰 물체의 검출을 하게 만들었다. 후술하겠지만, 이러한 방식은 위치 추정 및 입력 이미지의 resampling을 없애면서도 정확도 높은 결과를 도출하게 된다. 
 
-CNN의 특징 때문에 테스트를 할때에도 같은 Input을 주어서 테스트를 해야한다. 사진을 넣으면 Sliding Windows나 Region Proposal를 통해 특정 부분을 잘라내어 \\(224 \times 224 \\)로 변형시킨 뒤 그 부분만을 확인하게 된다. Detector가 확인할 수 있는 것은 해당 사진이 훈련되어 있는 물체인가 아닌가 만을 확인하기 때문이다.
+#### 3) *Convolutional predictors for detection*
