@@ -75,7 +75,7 @@ SSD는 이러한 문제를 기본 구조 뒤에 보조 구조를 붙여 얻은 *
 
 #### 3) *Convolutional predictors for detection* & *Default boxes and aspect ratios*
 
-> ![SSD-architecture])(/assets/ssdarchitecture.png )
+> ![SSD-architecture](/assets/ssdarchitecture.png )
 
 이 것이 SSD 의 architecture이다. 기본 구조나 보조 구조에서 얻은 feature map들은 각각 다른 convolutional filter에 의해 결과값을 얻게 된다. 
 
