@@ -46,11 +46,14 @@ Single-shot detector는 말 그대로 **사진 한장으로 훈련, 검출**을 
 
 보편적으로 사용되고 있는 Deep-learning Detector 들은 처음 훈련시킨 크기만을 입력으로 받을 수 있다. 대표적으로 VGG-16, Alexnet에서 주로 224X224 크기의 이미지를 입력으로 받는다.
 
->![VGG-16](http://www.datalearner.com/resources/blog_images/7c1008aa-1c42-45f0-83c7-88c6a0440677.png) 
+>![VGG-16]({{ site.url }}/assets/vgg16.png ) 
 >
 >224X224 크기의 이미지를 입력으로 받아, 그 결과를 1000 labels에 대한 확률로 반환해준다.
+>(출처: http://www.datalearner.com)
 
 즉 원하는 사진에서 객체가 있는지 없는지 확인하기 위해서는 그림을 224X224로 자르거나 변형켜서 알아내야 한다. 이러한 과정을 위해 Image Pyramid & Sliding Window 라던가, Region Proposal Network등으로 입력 이미지를 변형시켜 네트워크 집어넣게 된다.
+
+문제는 위의 처리 과정을 통해 얻은 여러가지 sample 들을 하나씩 network에 넣어서 훈련, 검출 해야 한다는 것이다. deep-learning
         - 이미지를 
  다양한 크기의 객체를 검출하기 위해서 크기를 키우고 줄여서 각각의 사진에서 네트워크를 이용하여 검출한다.  
 
