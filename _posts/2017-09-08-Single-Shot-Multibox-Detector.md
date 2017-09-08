@@ -128,18 +128,43 @@ SSD가 예측한 박스와 실제 박스가 일치하는 지를 확인하는 것
 > 
 > alpha: weight term, 이 값은 교차 검증에 의해 1로 정해졌다고 한다.
 
-SSD 는 위치와 카테고리를 같이 학습한다. 따라서 loss 역시 그 두 개를 동시에 고려하여야 한다. 가장 위의 식은 전체 Loss를 의미하며, 이 값은 위치에 따른 loss (L_loc)과 카테고리 점수에 따른 loss(L_conf) 를 합친 것이다. 
+SSD는 역시 deep neural network 이기에, 다른 네크워크와 마찬가지로 loss를 줄이는 방향으로 학습을 한다. 
 
-#### 3) Scale & Aspect ratios for default boxes
+위치와 카테고리를 예상하는 네트워크이기에, loss 역시 그 두 개를 동시에 고려하여야 한다. 가장 위의 식은 전체 loss를 의미하며, 이 값은 위치에 따른 loss (L_loc)과 카테고리 점수에 따른 loss(L_conf) 를 합친 것이다. 
+
+#### 3) *Scale & Aspect ratios for default boxes*
 >![Scale of default box](/assets/scale_formula.png)
+>
 > s_min 은 0.2, s_max 는 0.9이며
 > 
 > m 은 multi-feature maps 의 개수이다.
 
 위의 식을 통해, 각 feature map에서 default box의 크기가 얼마나 되는 지를 구한다. 
 
-#### 4) Hard Negative mining
+box의 크기를 구했다면, 남은 것은 aspect ratio를 구하는 것이다. 
+
+>![aspect ratio](/assets/aspect_ratio.png)
+>
+> 이 예시는 박스가 6개일 때의 예시이다.
+
+처음에 주어진 숫자가 1, 2 , 1/2 , 3, 1/3 이기에, 각각을 scale과 연상하여 구한 5개의 box와, aspect ratio 가 1일때에는 scale 하나를 더 구해서 1개의 추가적인 box, 즉 6개의 default box가 있는 것이다.
+
+만약 1, 3, 1/3 만을 aspect ratio로 이용한다면 6개가 아닌 4개의 default box가 있게 된다.
+
+
+#### 4) *Hard negative mining*
+
 matching을 돌리고 나면 positive에 비해 너무나도 많은 negative sample이 나오게 된다. 이 sample을 모두 훈련시키면, sample을 불균형으로 제대로 학습이 되지 않는다고 한다. 따라서 모든 mathcing 상자들 중, 점수가 상대적으로 높은 것들을 negative로 학습시킨다. 논문의 저자는 negative의 개수를 최대 postive의 3배 까지만 학습을 시키는 것이 최적화가 빨라지고 훈련이 좀 더 안정화된다고 주장한다.
+
+#### 5) *Data augmentation*
+
+입력을 전부 날 것으로 넣으면, 물체나 환경 변화에 대처를 잘 못하게 된다. 따라서 입력 이미지를 다음 세 개 중에 랜덤으로 선택해서 집어넣어, 좀 더 Robust 하게 훈련을  시킨다.
+
+       - 입력 이미지를 그대로 넣기
+       - 최소 Jaccard overlap이 0.1, 0.3, 0.5, 0.7, 0.9 인 샘플 패치를 넣기
+       - 랜덤으로 정해진 패치를 넣기
+
+sample들의 size는 원본 사이즈, 혹은 그의 0.1 중에 선택되며 aspect ratio 는 1/2 과 2 사이로 결정된다. 또 이 sample 들은 입력 사이즈에 맞춰진 다음, 50%의 확률로 위 아래가 뒤집혀 질 수도 있다.
 
 -----------------------------------------
 
