@@ -9,7 +9,7 @@ SSD가 등장하기 전까지 많이 사용되던 대표적인 detector는 Faste
 이 Faster R-CNN은 Detecting을 위해
 
    1. 들어온 image의 **후보 영역**을 열심히 뽑아서! (Region Proposal Network)
-   2. 뽑은 부분의 특징을 **resampling** 하고
+   2. 뽑은 부분의 특징이나 픽셀을 **resampling** 하고
    3. 그 뒤에 높은 성능의 classifier를 이용하는 것이다.
    
    (비슷한 시기에 나온 detector들은 대부분 이 과정을 거치게 된다.)
