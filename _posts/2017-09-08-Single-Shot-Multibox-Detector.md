@@ -1,6 +1,7 @@
 
-Single Shot MultiBox Detector
+Single Shot MultiBox Detector 
 ================
+[*논문 바로보기*](https://arxiv.org/pdf/1512.02325.pdf)
 
 ## 빠르고 강력한 Detector
 SSD가 등장하기 전까지 많이 사용되던 대표적인 detector는 Faster R-CNN이다.([Faster R-CNN 논문](https://arxiv.org/pdf/1506.01497.pdf))
@@ -105,11 +106,8 @@ SSD 를 훈련시킬 때 중요한 점은 물체 뿐만 아니라 위치가 정�
 SSD가 예측한 박스와 실제 박스가 일치하는 지를 확인하는 것은 매우 중요한 문제이다. 이럴 때 가장 많이 사용하는 것은 **jaccard overlap**, 혹은 **intersection over Union(IOU)** 이다. SSD에서는 이 값이 일정 값(threshold, 본 논문에서는 0.5)를 넘기기만 하면 일단 일치한다고 가정한다. 
 >![jaccard overlap](/assets/jaccard_overlap.png)
 
-다른 detector들의 구조에서는 IOU가 가장 큰 상자만을 사용하는 경우가 많은 데, 굳이 threshold를 넘는 상자를 모두 선택하는 이유는 두 가지가 있다. 
+다른 detector들의 구조에서는 IOU가 가장 큰 상자만을 사용하는 경우가 많은 데, 굳이 threshold를 넘는 상자를 모두 선택하는 이유는 **높은 정확도를 가진 상자를 한꺼번에 여러번 학습**시킴으로써 하나만 고르는 것보다 높은 학습율을 얻기 위해서 이다. 
 
-첫째는 **높은 정확도를 가진 상자를 한꺼번에 여러번 학습**시킴으로써 하나만 고르는 것보다 학습이 잘 된다고 한다. 
-
-둘째는 Hard Negative mining을 위해서이다. SSD는 negative sample을 따로 받지 않는다. 여기서 나온 0.5 이상의 상자들 중, 점수가 상대적으로 낮은 것 들을 negative로 학습시킨다. 최대 3:1 비율로 negative, positive로 나누며 이러한 학습이 최적화가 빠르고 훈련이 좀 더 안정화 됨을 (실험적으로)알았기 때문이다.
 
 #### 2) *Training objective*
 >![SSD Loss Function](/assets/ssd_loss_function.png)
@@ -127,8 +125,17 @@ SSD가 예측한 박스와 실제 박스가 일치하는 지를 확인하는 것
 > cx, cy: offset of center
 >
 > w,h : width and height
+> 
+> alpha: weight term, 이 값은 교차 검증에 의해 1로 정해졌다고 한다.
 
-SSD 는 위치와 카테고리를 같이 학습한다. 따라서 loss 역시 그 두 개를 동시에 고려하여야 한다. 가장 위의 식은 전체 Loss를 의미하며, 이 값은 위치에 따른 loss (L_loc)과 카테고리의 자신감에 따른 loss(L_conf) 를 합친 것이다. 자세한 것은 논문을 살펴보면 좋다!
+SSD 는 위치와 카테고리를 같이 학습한다. 따라서 loss 역시 그 두 개를 동시에 고려하여야 한다. 가장 위의 식은 전체 Loss를 의미하며, 이 값은 위치에 따른 loss (L_loc)과 카테고리 점수에 따른 loss(L_conf) 를 합친 것이다. 
+
+#### 3) Scale & Aspect ratios for default boxes
+
+
+
+#### 4) Hard Negative mining
+matching을 돌리고 나면 positive에 비해 너무나도 많은 negative sample이 나오게 된다. 이 sample을 모두 훈련시키면, sample을 불균형으로 제대로 학습이 되지 않는다고 한다. 따라서 모든 mathcing 상자들 중, 점수가 상대적으로 높은 것들을 negative로 학습시킨다. 논문의 저자는 negative의 개수를 최대 postive의 3배 까지만 학습을 시키는 것이 최적화가 빨라지고 훈련이 좀 더 안정화된다고 주장한다.
 
 -----------------------------------------
 
@@ -136,11 +143,13 @@ SSD 는 위치와 카테고리를 같이 학습한다. 따라서 loss 역시 그
 
 > ![ssd 결과](/assets/result_voc2007.png)
 > 
->입력 이미지가 커질수록 해상도가 높아지고,검출 할 수 있는 한도가 늘어나 수치가 더 좋게 나온다. 
-SSD300과 SSD512 의 차이는 그 결과이다. 
- 
-실제로 test를 돌려보면 위와 같은 결과가 나온다. 기존의 detection 방식과 많은 차이가 있음에도 불구하고 속도는 우월하고, 성능도 최신 detector들 만큼 뽑을 수 있다는 점은 놀랍다.
+>입력 이미지가 커질수록 해상도가 높아지고,검출 할 수 있는 한도가 늘어나 수치가 더 좋게 나온다. SSD300과 SSD512 의 차이는 그 결과이다. 
+>
+>논문의 result 부분을 자세히 살펴보면 training 때에 했던 기술들이 어느정도 성능 향상을 보여주는 것을 확인할 수 있다. 확인해보면 도움이 될 것이다.
 
-논문을 자세히 살펴보면 
-지금 현재는 YOLO의 새 버전인 YOLO9000이 성능과 속도를 모두 따라잡았기에 이 모델을 그대로 쓰는 것은 필요 없어졌다.
-하지만 SSD를 통해 다른 좋은 네트워크도 Single-shot Learning이 가능함을 보여주었고, 
+
+## 마치며 
+
+Yolo를 제외한 대부분의 detector들은 faster r-cnn과 같은 과정을 가지기 때문에, 기존의 detection 방식과 많은 차이가 있음에도 불구하고 속도는 우월하고, 성능도 최신의 것 이상 뽑을 수 있는 구조를 보여주었다는 점은 의미가 크다.
+
+SSD가 만능이라는 것은 아니다. 벌써 YOLO의 새 버전인 YOLO9000은 SSD의 속도와 성능을 모두 따라잡았다. 하지만 SSD는 다른 어떠한 detection network던 single-shot learning에 이용할 수 있음을 보여주었기에, 이를 알고 있다면 real-time detector 연구에 큰 도움이 될 것이라고 생각한다.
