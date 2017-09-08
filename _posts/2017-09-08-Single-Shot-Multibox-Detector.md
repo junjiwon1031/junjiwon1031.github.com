@@ -179,6 +179,6 @@ sample들의 size는 원본 사이즈, 혹은 그의 0.1 중에 선택되며 asp
 
 ## 마치며 
 
-Yolo를 제외한 대부분의 detector들은 faster r-cnn과 같은 과정을 가지기 때문에, 기존의 detection 방식과 많은 차이가 있음에도 불구하고 속도는 우월하고, 성능도 최신의 것 이상 뽑을 수 있는 구조를 보여주었다는 점은 의미가 크다.
+YOLO를 제외한 대부분의 detector들은 Faster R-CNN과 같은 과정을 가지기 때문에, 기존의 detection 방식과 많은 차이가 있음에도 불구하고 속도는 우월하고, 성능도 최신의 것 이상 뽑을 수 있는 구조를 보여주었다는 점은 의미가 크다.
 
-SSD가 만능이라는 것은 아니다. 벌써 YOLO의 새 버전인 YOLO9000은 SSD의 속도와 성능을 모두 따라잡았다. 하지만 SSD는 다른 어떠한 detection network던 single-shot learning에 이용할 수 있음을 보여주었기에, 이를 알고 있다면 real-time detector 연구에 큰 도움이 될 것이라고 생각한다.
+SSD가 만능이라는 것은 아니다. 벌써 YOLO의 새 버전인 YOLO9000은 SSD의 속도와 성능을 모두 따라잡았다. 하지만 SSD는 다른 어떠한 detection network이던 single-shot learning에 이용할 수 있음을 보여주었기에, 이를 알고 있다면 real-time detector 연구에 큰 도움이 될 것이라고 생각한다.
