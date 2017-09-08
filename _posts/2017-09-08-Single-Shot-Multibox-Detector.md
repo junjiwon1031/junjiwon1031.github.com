@@ -131,8 +131,12 @@ SSD가 예측한 박스와 실제 박스가 일치하는 지를 확인하는 것
 SSD 는 위치와 카테고리를 같이 학습한다. 따라서 loss 역시 그 두 개를 동시에 고려하여야 한다. 가장 위의 식은 전체 Loss를 의미하며, 이 값은 위치에 따른 loss (L_loc)과 카테고리 점수에 따른 loss(L_conf) 를 합친 것이다. 
 
 #### 3) Scale & Aspect ratios for default boxes
+>![Scale of default box](/assets/scale_formula.png)
+> s_min 은 0.2, s_max 는 0.9이며
+> 
+> m 은 multi-feature maps 의 개수이다.
 
-
+위의 식을 통해, 각 feature map에서 default box의 크기가 얼마나 되는 지를 구한다. 
 
 #### 4) Hard Negative mining
 matching을 돌리고 나면 positive에 비해 너무나도 많은 negative sample이 나오게 된다. 이 sample을 모두 훈련시키면, sample을 불균형으로 제대로 학습이 되지 않는다고 한다. 따라서 모든 mathcing 상자들 중, 점수가 상대적으로 높은 것들을 negative로 학습시킨다. 논문의 저자는 negative의 개수를 최대 postive의 3배 까지만 학습을 시키는 것이 최적화가 빨라지고 훈련이 좀 더 안정화된다고 주장한다.
