@@ -1,4 +1,3 @@
-
 ---
 title: Single Shot MultiBox Detector 리뷰
 author: Jiwon Jun
