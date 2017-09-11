@@ -1,5 +1,11 @@
 
-Single Shot MultiBox Detector 
+---
+title: Single Shot MultiBox Detector 리뷰
+author: Jiwon Jun
+date: 2017-09-08 14:00
+---
+
+Single Shot MultiBox Detector 리뷰
 ================
 [*논문 바로보기*](https://arxiv.org/pdf/1512.02325.pdf)
 
