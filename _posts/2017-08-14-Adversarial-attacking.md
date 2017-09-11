@@ -1,9 +1,7 @@
 ---
-layout: post
 title: 논문 Explaining And Harnessing Adversarial Examples 리뷰
 author: Jiwon Jun
 date: 2017-08-15 15:30
-
 ---
 ## Deep Neural Network는 완벽해질 수 있을까?
 
