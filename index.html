@@ -1,17 +1,17 @@
 ---
-layout: default
-title: Home
-menu: no
+layout: home
 ---
-<h1 class="page-title">Articles</h1>
-<div class="home">
-<div class="post-list">
-{% for post in site.posts %}
-<a style="text-decoration:none"  href="{{ post.url | prepend: site.baseurl }}">
-      {% include post-cards.html %}
-</a>
-{% endfor %}
-</div>
-</div>
 
-
+임시 블로그 홈페이지
+I'll be changing my homepage more academic.
+Please wait until open.
+Thank you.
+<!--
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+-->

@@ -1,29 +1,35 @@
-Bheema is a theme suitabel for image heavy journal kind of websites. 
+## Neural Network 공부
 
-Demo: [http://webjeda.com/ashwath/](http://webjeda.com/ashwath/)
+개인적으로 공부했던 부분을 정리해서 올려두려 한다
 
+### Markdown
 
-## Installation
-* Fork the repository
-* Go to settings and set Github Pages source as master.
-* Your new site should be ready.
+Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
+```markdown
+Syntax highlighted code block
 
-## Screenshots
-Default theme:
+# Header 1
+## Header 2
+### Header 3
 
-![ashwath jekyll theme](http://webjeda.com/ashwath/images/Default.png)
+- Bulleted
+- List
 
-Color schemes (Full version)
+1. Numbered
+2. List
 
-![ashwath jekyll theme](http://webjeda.com/ashwath/images/Purple.png)
+**Bold** and _Italic_ and `Code` text
 
-![ashwath jekyll theme](http://webjeda.com/ashwath/images/Blood.png)
+[Link](url) and ![Image](src)
+```
 
-![ashwath jekyll theme](http://webjeda.com/ashwath/images/Mango.png)
+For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
+### Jekyll Themes
 
-For more themes visit - [https://jekyll-themes.com](https://jekyll-themes.com)
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/junjiwon1031/junjiwon1031.github.com/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-## License
-MIT License
+### Support or Contact
+
+Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
