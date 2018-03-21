@@ -1,11 +1,52 @@
-title: Deep Learning Reviews & Study
-email: battery94@gist.ac.kr
-timezone: Asia/Seoul
+# Theme: Ashwathama
+title: Deep Learning Papers Reviews
+description: > # this means to ignore newlines until "baseurl:"
+  딥러닝 초년차 석사의 paper review 입니다.
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "http://junjiwon1031.github.io"
+permalink: :title/
+full-url: "http://junjiwon1031.github.io" # the base hostname & protocol for your site
 
-repository: junjiwon1031/junjiwon1031.github.io
-theme: jekyll-theme-slate
 
-asset_urs: /assets
+# CSS
+sass:
+  style: compressed
 
-github:
-  username: junjiwon1031
+# Comments - Go to Disqus.com > sign up > get the short-name > insert it here
+disqus-shortname: 
+
+# Tracker
+analytics: UA-83979019-1
+
+# Form Settings
+#
+# Contact form can be enabled by getting an API key from https://getsimpleform.com/
+simpleform-token: b6d4be9b039b666b3311e1ddcbfb577c
+
+# Redirect users after submitting the form
+redirect-to: http://junjiwon1031.github.io
+
+# Site version
+version: 1.0
+
+
+# Post date background - This will change the background of the post date and tag ribbon according to the theme. If set to no default green background will be used. If yes then the theme color scheme is used.
+
+change-date-bg: no
+
+
+# Build settings
+markdown: kramdown
+
+include: [_pages] # Includes files inside _pages directory [Do not remove this]
+
+author:
+  name: Jiwon Jun
+  image: jjw.jpg # The author image will be shown on the header. Place this image in /images/ folder.
+  about: GIST MLV 17년 9월 시작. 아직도 1년차 석사. 논문은 아직이지만 리뷰는 열심히
+  facebook: junjiwon # https://facebook.com/ is automatically added
+  email: battery94@gist.ac.kr # mailto: is automatically added
+  
+gems: 
+  - jekyll-seo-tag
+  - jekyll-paginate
