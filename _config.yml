@@ -1,13 +1,63 @@
-title: Deep Learning Reviews & Study
-description: 보통 Detector에 관련된 논문을 리뷰합니다.
+# Developer's Note: This is a sample _config.yml file offered with
+# jekyll-theme-prologue for your convenience. To use it, move it to your
+# project's root directory. Please note that the following lines are
+# NECESSARY for Prologue to work correctly:
+#
+# theme: jekyll-theme-prologue
+# collections: [sections]
+#
+# They activate the theme and tell Jekyll to find your homepage content
+# in /_sections. Note where "sections" starts with an underscore
+# and where it doesn't. The social settings will make links to
+# Twitter, etc., but only if you give the URL.
+#
+# Also, be sure to customize url and baseurl for your site.
+#
+# ---------------------------------------------------------------
+#
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Deep Learning 
+subtitle: Study & Review
+description: >- # this means to ignore newlines until "baseurl:"
+  Leaning about Object Detection
+author: 전지원
 email: battery94@gist.ac.kr
-google_analytics: UA-116226112-1
+avatar: assets/images/avatar.jpg
 timezone: Asia/Seoul
 
+# You'll want to customize url and baseurl for your own site:
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "http://junjiwon1031.github.io" # the base hostname & protocol for your site
 repository: junjiwon1031/junjiwon1031.github.io
-theme: jekyll-theme-slate
 
-asset_urs: /assets
 
-github:
-  username: junjiwon1031
+# Social settings
+facebook_url: https://www.facebook.com/junjiwon
+github_url: https://github.com/junjiwon1031
+googleplus_url:
+instagram_url:
+linkedin_url: https://www.linkedin.com/in/%EC%A7%80%EC%9B%90-%EC%A0%84-737976148/
+pinterest_url:
+slack_url:
+twitter_url:
+
+# Google Analytics Tracking ID goes here:
+google_analytics: UA-116226112-1
+
+# The following settings are NECESSARY for the Prologue theme to run:
+theme: jekyll-theme-prologue
+collections: [sections]
