@@ -72,7 +72,7 @@ Single-shot detector는 말 그대로 **사진의 변형 없이 그 한 장으�
 
 SSD는 이러한 문제를 기본 구조 뒤에 보조 구조를 붙여 얻은 *Multi-scale feature maps* 을 이용해서 해결하였다.
 
->![SSD-Framework](http://www.cs.unc.edu/~wliu/papers/ssd.png =500x)
+>![SSD-Framework](http://www.cs.unc.edu/~wliu/papers/ssd.png)
 > *멍멍이*와 *야옹이*는 크기가 **두 배정도** 다르기에 
 > 크기가 다른 feature map들에서 찾아내게 된다. 
 
