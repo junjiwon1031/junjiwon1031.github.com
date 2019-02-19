@@ -72,9 +72,9 @@ Single-shot detector는 말 그대로 **사진의 변형 없이 그 한 장으�
 
 SSD는 이러한 문제를 기본 구조 뒤에 보조 구조를 붙여 얻은 *Multi-scale feature maps* 을 이용해서 해결하였다.
 
->![SSD-Framework](http://www.cs.unc.edu/~wliu/papers/ssd.png)
+>![SSD-Framework](/assets/ssd_feature_example.png)
 > *멍멍이*와 *야옹이*는 크기가 **두 배정도** 다르기에 
-> 크기가 다른 feature map들에서 찾아내게 된다. 
+> 크기가 다른 feature map들에서 찾아내게 된다. (출처: SSD 논문)
 
 위 사진에서 멍멍이의 크기는 사진의 1/3 가량인데 반해, 고양이는 대략 1/6 정도로 둘의 크기 차이가 크다. 이를 한가지 feature map에서 구하려면 bounding box의 크기차이가 크기 때문에, box의 크기 추정부터 위치 추정까지 많은 과정이 필요할 것이다.
 
