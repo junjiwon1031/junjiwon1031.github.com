@@ -2,7 +2,7 @@
 title: SSD 리뷰
 author: Jiwon Jun
 date: 2017-09-08 14:00
-layout: posts
+layout: single
 ---
 
 Single Shot MultiBox Detector 리뷰
@@ -53,7 +53,7 @@ Single-shot detector는 말 그대로 **사진의 변형 없이 그 한 장으�
 
 보편적으로 사용되고 있는 Deep-learning Detector 들은 처음 훈련시킨 크기만을 입력으로 받을 수 있다. 대표적으로 VGG-16, Alexnet에서 주로 224X224 크기의 이미지를 입력으로 받는다.
 
->![VGG-16](/assets/vgg16.png ) 
+>![VGG-16](/assets/images/deep_learning/vgg16.png ) 
 >
 >224X224 크기의 이미지를 입력으로 받아, 그 결과를 1000 labels에 대한 확률로 반환해준다.
 >(출처: http://www.datalearner.com)
@@ -72,7 +72,7 @@ Single-shot detector는 말 그대로 **사진의 변형 없이 그 한 장으�
 
 SSD는 이러한 문제를 기본 구조 뒤에 보조 구조를 붙여 얻은 *Multi-scale feature maps* 을 이용해서 해결하였다.
 
->![SSD-Framework](/assets/ssd_feature_example.png)
+>![SSD-Framework](/assets/images/deep_learning/ssd_feature_example.png)
 > 
 > *멍멍이*와 *야옹이*는 크기가 **두 배정도** 다르기에 
 > 크기가 다른 feature map들에서 찾아내게 된다. (출처: SSD 논문)
@@ -83,7 +83,7 @@ SSD는 이러한 문제를 기본 구조 뒤에 보조 구조를 붙여 얻은 *
 
 #### 3) *Convolutional predictors for detection* & *Default boxes and aspect ratios*
 
-> ![SSD-architecture](/assets/ssdarchitecture.png )
+> ![SSD-architecture](/assets/images/deep_learning/ssdarchitecture.png )
 
 이 것이 SSD 의 architecture이다. 기본 구조나 보조 구조에서 얻은 feature map들은 각각 다른 convolutional filter에 의해 결과값을 얻게 된다. 
 
@@ -111,13 +111,13 @@ SSD 를 훈련시킬 때 중요한 점은 물체 뿐만 아니라 위치가 정�
 
 #### 1) *Matching Strategy*
 SSD가 예측한 박스와 실제 박스가 일치하는 지를 확인하는 것은 매우 중요한 문제이다. 이럴 때 가장 많이 사용하는 것은 **jaccard overlap**, 혹은 **intersection over Union(IOU)** 이다. SSD에서는 이 값이 일정 값(threshold, 본 논문에서는 0.5)를 넘기기만 하면 일단 일치한다고 가정한다. 
->![jaccard overlap](/assets/jaccard_overlap.png)
+>![jaccard overlap](/assets/images/deep_learning/jaccard_overlap.png)
 
 다른 detector들의 구조에서는 IOU가 가장 큰 상자만을 사용하는 경우가 많은 데, 굳이 threshold를 넘는 상자를 모두 선택하는 이유는 **높은 정확도를 가진 상자를 한꺼번에 여러번 학습**시킴으로써 하나만 고르는 것보다 높은 학습율을 얻기 위해서 이다. 
 
 
 #### 2) *Training objective*
->![SSD Loss Function](/assets/ssd_loss_function.png)
+>![SSD Loss Function](/assets/images/deep_learning/ssd_loss_function.png)
 >
 > N: 검출된 박스의 개수 ( N=0 일 시에 loss를 0으로 설정함)
 >
@@ -140,7 +140,7 @@ SSD는 역시 deep neural network 이기에, 다른 네크워크와 마찬가지
 위치와 카테고리를 예상하는 네트워크이기에, loss 역시 그 두 개를 동시에 고려하여야 한다. 가장 위의 식은 전체 loss를 의미하며, 이 값은 위치에 따른 loss (L_loc)과 카테고리 점수에 따른 loss(L_conf) 를 합친 것이다. 
 
 #### 3) *Scale & Aspect ratios for default boxes*
->![Scale of default box](/assets/scale_formula.png)
+>![Scale of default box](/assets/images/deep_learning/scale_formula.png)
 >
 > s_min 은 0.2, s_max 는 0.9이며
 > 
@@ -150,7 +150,7 @@ SSD는 역시 deep neural network 이기에, 다른 네크워크와 마찬가지
 
 box의 크기를 구했다면, 남은 것은 aspect ratio를 구하는 것이다. 
 
->![aspect ratio](/assets/aspect_ratio.png)
+>![aspect ratio](/assets/images/deep_learning/aspect_ratio.png)
 >
 > 이 예시는 박스가 6개일 때의 예시이다.
 
@@ -177,7 +177,7 @@ sample들의 size는 원본 사이즈, 혹은 그의 0.1 중에 선택되며 asp
 
 ##  결과
 
-> ![ssd 결과](/assets/result_voc2007.png)
+> ![ssd 결과](/assets/images/deep_learning/result_voc2007.png)
 > 
 >입력 이미지가 커질수록 해상도가 높아지고,검출 할 수 있는 한도가 늘어나 수치가 더 좋게 나온다. SSD300과 SSD512 의 차이는 그 결과이다. 
 >
