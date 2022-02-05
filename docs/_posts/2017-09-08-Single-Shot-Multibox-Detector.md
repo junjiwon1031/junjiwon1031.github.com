@@ -2,7 +2,7 @@
 title: SSD 리뷰
 author: Jiwon Jun
 date: 2017-09-08 14:00
-layout: post
+layout: posts
 ---
 
 Single Shot MultiBox Detector 리뷰
