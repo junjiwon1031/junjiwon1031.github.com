@@ -18,13 +18,54 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+# skin
+minimal_mistakes_skin : "air"
+
 locale		: "ko-KR"
-title		: 아무거나 정리하는 개발 블로그
+title		: Battery94 블로그
+title_seperator : "-"
+subtitle        : "잡동사니 전문"
 email		: junjiwon1031@gmail.com
-description	: >- # this means to ignore newlines until "baseurl:"
+
+name		: &name "Jiwon Jun"
+description	: &description >- # this means to ignore newlines until "baseurl:"
  백엔드도 찍먹하고 DB도 찍먹하고 딥러닝도 찍먹하고
 baseurl		: "/" # the subpath of your site, e.g. /blog
 url		: "http://junjiwon1031.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+words_per_minute: 200
+comments:
+  provider	: "disqus"
+  disqus:
+    shortname	:
+
+# Search
+search		: true
+search_full_content: true
+search_provider : algolia
+
+# SEO
+google_site_verification: "985MYlY6-PSD3m2TSym_8Td8Uz5gMwVXDi4DxZdmlPY"
+naver_site_verification :
+
+# Social
+facebook	:
+  username	: &facebook "junjiwon"
+
+footer		:
+  links		:
+    - label	: "Github"
+      icon      : "fab fa-fw fa-github"
+      url       : "https://github.com/junjiwon1031"
+    - label	: "Facebook"
+      icon      : "fab fa-fw fa-facebook"
+      url       : "https://www.facebook.com/junjiwon1031"
+    - label	: "Linkedin"
+      icon      : "fab fa-fw fa-linkedin"
+      url       : "https://www.linkedin.com/in/%EC%A7%80%EC%9B%90-%EC%A0%84-737976148/"
+
+atom_feed	:
+  hide		: true
 
 twitter_username:
 github_username	: junjiwon1031

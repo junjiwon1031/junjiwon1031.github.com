@@ -20,17 +20,12 @@ foo:
 
 # main links
 main:
-  - title: "Quick-Start Guide"
+  - title: "Develop"
     url: /docs/quick-start-guide/
-  - title: "About"
+  - title: "Programming"
     url: /about/
-  - title: "Sample Posts"
+  - title: "Deep Learning"
     url: /year-archive/
-  - title: "Sample Collections"
-    url: /collection-archive/
-  - title: "Terms &amp; Privacy Policy"
-    url: /terms/
-
 
 # documentation links
 docs:
