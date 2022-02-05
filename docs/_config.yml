@@ -43,6 +43,12 @@ comments:
 search		: true
 search_full_content: true
 search_provider : algolia
+algolia		:
+  application_id	: ZLZX94LJU5
+  index_name    	: blog_battery94
+  search_only_api_key	: 9cbd8a3e1a42413c363c3b66f82e0ad5
+  powered_by		: true
+  files_to_exclude	: # not yet...
 
 # SEO
 google_site_verification: "985MYlY6-PSD3m2TSym_8Td8Uz5gMwVXDi4DxZdmlPY"
@@ -52,6 +58,7 @@ naver_site_verification :
 facebook	:
   username	: &facebook "junjiwon"
 
+# Site Footer
 footer		:
   links		:
     - label	: "Github"
@@ -64,16 +71,39 @@ footer		:
       icon      : "fab fa-fw fa-linkedin"
       url       : "https://www.linkedin.com/in/%EC%A7%80%EC%9B%90-%EC%A0%84-737976148/"
 
+# to hide atom_feed
 atom_feed	:
   hide		: true
 
-twitter_username:
-github_username	: junjiwon1031
-facebook_url	: https://www.facebook.com/junjiwon
-github_url	: https://github.com/junjiwon1031
-linkedin_url	: https://www.linkedin.com/in/%EC%A7%80%EC%9B%90-%EC%A0%84-737976148/
+# Analytics
+analytics	:
+  provider	: "google"
+  google	:
+    tracking_id : UA-116226112-1
+    anonymize_ip: true
 
-google_analytics: UA-116226112-1
+# Author
+author		:
+  name		: *name
+  avatar	: "/assets/images/avatar.jpg"
+  location	: "Bundang, KR"
+  links		:
+    - label	: "Github"
+      icon      : "fab fa-fw fa-github"
+      url       : "https://github.com/junjiwon1031"
+    - label	: "Facebook"
+      icon      : "fab fa-fw fa-facebook"
+      url       : "https://www.facebook.com/junjiwon1031"
+    - label	: "Linkedin"
+      icon      : "fab fa-fw fa-linkedin"
+      url       : "https://www.linkedin.com/in/%EC%A7%80%EC%9B%90-%EC%A0%84-737976148/"
+
+# Reading files
+include:
+  - .htaccess
+  - _pages
+exclude:
+  - "*.swp"
 
 # Build settings
 # theme: minima
@@ -86,6 +116,8 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jemoji
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
