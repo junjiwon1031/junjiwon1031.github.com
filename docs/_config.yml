@@ -37,7 +37,7 @@ words_per_minute: 200
 comments:
   provider	: "disqus"
   disqus:
-    shortname	:
+    shortname	: "junjiwon-github"
 
 # Search
 search		: true
