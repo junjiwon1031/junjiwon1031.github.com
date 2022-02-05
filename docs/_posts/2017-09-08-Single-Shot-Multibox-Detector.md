@@ -1,7 +1,6 @@
 ---
 title: SSD 리뷰
-author: Jiwon Jun
-date: 2017-09-08 14:00
+permalink: /2017/09/08/Single-Shot-Multibox-Detector.html
 layout: single
 ---
 
