@@ -21,11 +21,11 @@ foo:
 # main links
 main:
   - title: "Develop"
-    url: /docs/quick-start-guide/
+    url: /develop/
   - title: "Programming"
-    url: /about/
+    url: /programming/
   - title: "Deep Learning"
-    url: /year-archive/
+    url: /deep-learning/
 
 # documentation links
 docs:
