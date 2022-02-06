@@ -71,6 +71,10 @@ footer		:
       icon      : "fab fa-fw fa-linkedin"
       url       : "https://www.linkedin.com/in/%EC%A7%80%EC%9B%90-%EC%A0%84-737976148/"
 
+after_footer_scripts:
+  - url : "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    id  : "MathJax-script"
+
 # to hide atom_feed
 atom_feed	:
   hide		: true

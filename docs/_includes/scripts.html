@@ -20,9 +20,8 @@
 
 {% include analytics.html %}
 {% include /comments-providers/scripts.html %}
-
 {% if site.after_footer_scripts %}
   {% for script in site.after_footer_scripts %}
-    <script src="{{ script | relative_url }}"></script>
+    <script src="{{ script.url | relative_url | naver.com }}" id="{{ script.id }}"></script>
   {% endfor %}
 {% endif %}
