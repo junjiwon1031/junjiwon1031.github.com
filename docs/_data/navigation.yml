@@ -17,15 +17,14 @@ foo:
       - title: "Child Link 3"
         url: /child-3-page-url/
 
-
 # main links
 main:
   - title: "Develop"
-    url: /develop/
+    url: /categories/develop/
   - title: "Programming"
-    url: /programming/
+    url: /categories/programming/
   - title: "Deep Learning"
-    url: /deep-learning/
+    url: /categories/deeplearning/
 
 # documentation links
 docs:
@@ -83,6 +82,12 @@ docs:
         url: /docs/license/
       - title: "Terms &amp; Privacy Policy"
         url: /terms/
+
+deeplearning:
+  - title: "Pelee 리뷰" 
+    url: /2019/02/19/Pelee.html
+  - title: "SSD 리뷰"
+    url: /2017/09/08/Single-Shot-Multibox-Detector.html
 
 # sidebar navigation list sample
 sidebar-sample:

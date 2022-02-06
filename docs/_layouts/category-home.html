@@ -1,0 +1,33 @@
+---
+layout: archive
+---
+
+{{ content }}
+
+<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].all_posts | default: "모든 포스트" }}</h3>
+
+{% if paginator %}
+  {% assign posts = paginator.posts %}
+{% else %}
+  {% if page.category %}
+    {% case page.category %}
+      {% when "deeplearning" %}
+        {% assign posts = site.categories.deeplearning %}
+      {% when "programming" %}
+        {% assign posts = site.categories.programming %}       
+      {% when "develop" %}
+        {% assign posts = site.categories.develop %}
+    {% endcase %}
+  {% else %}
+    {% assign posts = site.posts %}
+  {% endif %}
+{% endif %}
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% for post in posts %}
+    {% include archive-single.html type=entries_layout %}
+  {% endfor %}
+</div>
+
+{% include paginator.html %}

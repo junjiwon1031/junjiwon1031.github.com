@@ -1,6 +1,7 @@
 ---
 title: "Programming"
-permalink: /programming/
-layouts: posts
+permalink: /categories/programming/
+layout: category-home
+category: programming
 author_profile: true
 ---

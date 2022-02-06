@@ -2,6 +2,9 @@
 title: SSD 리뷰
 permalink: /2017/09/08/Single-Shot-Multibox-Detector.html
 layout: single
+categories: deeplearning
+sidebar:
+  nav: deeplearning
 ---
 
 Single Shot MultiBox Detector 리뷰
