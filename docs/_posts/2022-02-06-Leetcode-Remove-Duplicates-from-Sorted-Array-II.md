@@ -8,6 +8,8 @@ tags:
  - Python
 ---
 
+오늘의 Daily LeetCoding Challege 문제는~~~~ 바로 이것!
+
 ![오늘의 문제는 뭘까요~](/assets/images/leetcode/20220206_remove-duplicates-from-sorted-array-ii.png)
 
 오늘 문제는 비내림차순 정렬된 array인 input에서 각 element 값이 2번까지만 중복될 수 있도록 그 이상 중복된 element들을 제거하는 문제이다.
