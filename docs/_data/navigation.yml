@@ -35,7 +35,7 @@ docs:
   - title: Programming
     children:
       - title: "Daily LeegCoding Challeges"
-        url: /tag/#leetcode
+        url: /tags/#leetcode
 
 deeplearning:
   - title: "Pelee 리뷰" 

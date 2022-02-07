@@ -257,6 +257,12 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+exclude_tags:
+  - "Programming"
+  - "Develop"
+  - "Python"
+  - "Deep Learning"
 # https://github.com/jekyll/jekyll-archives
 # jekyll-archives:
 #   enabled:
