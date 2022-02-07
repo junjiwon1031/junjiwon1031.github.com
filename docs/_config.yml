@@ -160,6 +160,8 @@ defaults:
       comments: true
       share: true
       related: true
+      sidebar:
+        nav: docs
   # _pages
   - scope:
       path: "_pages"
@@ -167,6 +169,8 @@ defaults:
     values:
       layout: single
       author_profile: true
+      sidebar:
+        nav: docs
   # _docs
   - scope:
       path: ""
@@ -177,8 +181,6 @@ defaults:
       author_profile: false
       share: false
       comments: false
-      sidebar:
-        nav: "docs"
   # _recipes
   - scope:
       path: ""
@@ -277,7 +279,7 @@ compress_html:
 
 # Build settings
 # theme: minima
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+# remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 plugins:
   - jekyll-feed
   - jekyll-include-cache
