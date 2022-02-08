@@ -8,7 +8,7 @@ tags:
  - Python
 ---
 
-오늘의 Daily LeetCoding Challege 문제는 바로 이 것!
+오늘의 Daily LeetCoding Challege 문제는 바로 이것!
 
 ![오늘의 문제는 뭘까요~](/assets/images/leetcode/20220207_find_the_difference.png)
 
@@ -36,7 +36,8 @@ s 와 t 의 알파벳 개수를 세는 것은 for문으로 일일히 찾아봐�
 
 이번 문제와 같이 개수를 세는 것은 `collections` 모듈의 `Counter`를 사용하면 된다.
 `Counter`는 받은 input을 hash를 이용해서 count해주는 dict subclass 이다.
-string을 Counter 에 넣으면 각 letter를 key로 하고 개수를 value로 하는 dictionary 를 return 해준다.
+string을 Counter 에 넣으면 각 letter를 key로 하고 개수를 value로 하는 dictionary로 사용 가능한
+Counter object 를 return 해준다.
 
 이를 이용해서 풀면 아래와 같이 짧고 깔끔한 풀이가 나온다. 
 
